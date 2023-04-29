@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  jupyter-notebooks:
+    build: .
+    ports:
+        - "8888:8888"
+    volumes:
+      - "./notebooks:/home/jovyan/notebooks"
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: postgres
+      POSTGRES_DATABASE: postgres
+
